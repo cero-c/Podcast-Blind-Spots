@@ -1,0 +1,432 @@
+*{ padding: 0;
+    margin: 0;
+}
+/*lettertype met @font-face. border-box= padding&margin inclusief*/
+@font-face {
+    font-family: 'Kay Pho Du semibold';
+    src: url('fonts/KayPhoDu1/kayphodu-semibold-webfont.woff2') format('woff2'),
+       url('fonts/KayPhoDu1/kayphodu-semibold-webfont.woff') format('woff'),
+      url('fonts/KayPhoDu1/KayPhoDu-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Kay Pho Du regular';
+    src: url('fonts/KayPhoDu1/kayphodu-regular-webfont.woff2') format('woff2'),
+        url('fonts/KayPhoDu1/kayphodu-regular-webfont.woff') format('woff'),
+        url('fonts/KayPhoDu1/KayPhoDu-Regular.ttf') format('truetype');
+}
+/* viewport & rem responsive design: Moet dit element afhankelijk zijn van de schermgrootte of juist consistent blijven met de rest van het design?*/
+/* root&general */
+
+html {
+    font-family: 'Kay Pho Du regular', Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    overflow-x:hidden;
+    background-color: #242429;
+}
+
+strong{
+    font-family: 'Kay Pho Du semibold', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* ik gebruikte eerst vw & vh, maar die zijn niet altijd het meest leesbare formaten en niet geschikt voor alle browsers  */
+    margin: 0.5em;
+    width: 100%;
+    background-color: #135E51;
+}
+header img{
+    height: 6em;
+}
+.subtitel{
+    position: relative;
+    left: 11vw;
+}
+h1{
+    color: #3bbb8b;
+    font-family: 'Kay Pho Du semibold', Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    white-space: nowrap;
+    padding-left: 0.3em;
+}
+header p, .subtitel{
+    font-size: 1em;
+    color: aliceblue;
+    white-space:nowrap;
+}
+
+/* nav */
+header nav{
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+}
+header ul{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    list-style: none;
+}
+header a{
+    color:#135E51;
+    background-color: aliceblue;
+    border: 0.1em inset aliceblue;
+    transition: transform 50ms ease-in, background-color 50ms ease-in, font-size 50ms ease-in, padding 50ms ease-in;
+    padding: 0.7em 1em;
+    text-decoration: none;
+    white-space: nowrap; 
+    font-size: 1em;
+    border-radius: 0.2rem;
+}
+.active{
+    color: #242429;
+    border-color: #242429;
+    background-color: #75b79e;
+}
+header a:hover {
+    background-color: #3bbb8b;
+    font-size: clamp(1.1rem, 1.4vw, 1.6rem); /* leesbaar en schaal van het scherm, beide belangrijk */
+    padding: 0.8em 1em;
+    transform: scale(1.5);   
+}
+header a:active {
+    color: aliceblue;
+    background-color: #3bbb8b;
+}
+
+/*header is klaar, body start*/
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4em;
+    width:90%;
+    height: 90%;
+    max-height: 90%;
+    border: 0.5em solid #135E51;
+    box-shadow: 0 4px 8px rgba(236, 236, 236, 0.2);
+    overflow: auto;
+}
+h4{   
+    font-size: 1.3em;
+    color:#3bbb8b;
+    font-family: 'Kay Pho Du semibold', Arial, Helvetica, sans-serif;  
+}
+h2{ 
+    color:#3bbb8b;
+    font-family: 'Kay Pho Du semibold', Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    margin-left:1em;
+    margin-bottom: 1em;
+}
+h3{
+    padding: 1vw;
+    margin-top: 3vw;
+    border: 0.3vw inset #3bbb8b;
+    background-color: #135E51;
+    color: whitesmoke;
+} /* episodes */
+p{
+    font-size: 1.1rem;
+    text-align: justify;
+    color: aliceblue;
+}
+/* niet meer nodig, omdat de video uit Youtube video{
+    width: 100%
+}*/
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0; /* wordt gebruikt met position */
+    left:0;
+    width: 90%;
+    height:50%;
+}
+/* article&sections&classes */
+article{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1em;
+    padding:2em;
+}
+article>div{
+    display: flex;
+    gap:1em;
+}
+section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.beeldengeluid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+}
+.episodes{
+    width: 24vmax;
+    height: 16vmax;
+}
+.naast-elkaar{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 2em;
+    margin-left:2em;
+    gap:2em;
+    width: 90%;
+}
+.afleveringen{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2em;
+}
+.us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    gap:1em;
+    width: 20vw;
+}
+
+.comic-us{
+    max-height:10em;
+    max-width: 18em;
+} 
+.us>p{
+    text-align: left;
+}
+.tekst{
+    width: 50%;
+}
+.about-tekst{
+    width:50vw;
+}
+s
+.logo{
+    max-width: 250px;
+}
+
+/* body is klaar, footer begint */
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    background-color: #135E51;
+    margin-top: 4vw;
+}
+footer p{
+    font-size: 1em;
+    white-space: nowrap;  
+
+}
+footer :nth-child(2){
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding-top:0.2vw;
+    padding-right: 0.3vw;
+    padding-left: 0.3vw;
+    gap: 0.3vw;
+    background-color: #3bbb8b;
+}
+footer div p{
+    color: #242429;
+}
+footer li{
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+    gap: 1em;
+    list-style: none;
+}
+
+.logo-footer{
+    width: 3vmax;
+    height: 3vmax;
+}
+.bronnen{
+    text-decoration: none;
+    font-size: 1em;
+    padding: 0.2em;
+    color: aliceblue;
+}
+
+/* Sources*/
+main ul{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+    padding:2em;
+    color:#3bbb8b;
+    border: dashed #3bbb8b ;
+}
+main a{
+    text-decoration: none;
+    color: #3bbb8b;
+    padding: 2em;
+    text-wrap: nowrap;
+
+}
+/* animaties */
+@keyframes colorfulbumerang {
+    0%{ transform: skew(0deg);
+        background-color: #3bbb8b;
+    }
+    25%{
+        transform: skew(20deg);
+        background-color: #135E51
+    }
+    50%{
+        transform: skew(0deg);
+        background-color: #242429;
+    }
+    100%{
+        transform:skew(-20deg);
+        background-color: #75b79e;
+    }
+}
+.tutorials{
+    animation: colorfulbumerang 5s infinite;
+}
+
+@keyframes jumping{
+    0%{ 
+        transform:translateY(0)
+    }
+    25%{
+        transform: translateY(-2em);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    75%{
+        transform: translateY(1em);
+    }
+    100%{transform: translateY(0);
+    }
+
+
+}
+.jump{
+    border: 0.2em inset #3bbb8b;
+    color: aliceblue;
+    background-color: #135E51;
+    animation: jumping 3s infinite ease-in-out;
+}
+
+@keyframes teaser{    
+    0%{ transform: skew(0deg);
+    background-color: #3bbb8b;
+}
+25%{
+    transform: skew(20deg);
+    background-color: #135E51
+}
+50%{
+    transform: skew(0deg);
+    background-color: #242429;
+}
+100%{
+    transform:skew(-20deg);
+    background-color: #75b79e;
+}
+}
+.teaser{
+    animation: teaser 5s infinite;
+}
+
+/* last controls */
+audio {
+    width: 80%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+h3:only-child { 
+    margin: 0;
+    background-color: #242429;
+    color:aliceblue;
+    padding: 0 2em;
+    margin-left: 5em;
+}
+
+
+/* light-dark mode :root{  
+    --bg-color: #242429;      
+    --text-color: aliceblue;    
+    --primary-color: #3bbb8b;   
+}
+
+.theme-toggle:checked {
+    --bg-color: aliceblue;
+    --text-color: #242429;
+    --primary-color: #135e51;
+} 
+
+.theme-toggle:checked {
+    --bg-color: aliceblue;
+    --text-color: #242429;
+    --primary-color: #135e51;
+}
+
+.theme-switch {
+    display: inline-block;
+    width: 6rem;
+    height: 3rem;
+    background-color: var(--primary-color);
+    border-radius: 1em;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-switch:before {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: gold;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+ checkbox movement 
+.theme-toggle:checked + .theme-switch:before {
+    transform: translateX(2.5rem);
+}
+
+hide checkbox
+.theme-toggle {
+    display: none;
+} 
+ik durfde te proberen :| */
